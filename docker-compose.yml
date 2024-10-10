@@ -1,0 +1,14 @@
+services:
+  todo-frontend:
+    build: .
+    ports:
+      - '8081:80'
+    develop:
+      watch:
+        - action: sync
+          path: ./src
+          target: /app/src
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: ./src
